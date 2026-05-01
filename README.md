@@ -81,37 +81,40 @@ bun --version
 
 ---
 
-## 1. Clone this repo into ~/.claude
+## 1. Set up SSH keys
 
 > Run all following steps as `claudeuser` (created in Prerequisites above).
 
 ```bash
-# Clone via HTTPS — SSH isn't set up yet at this point
-git clone https://github.com/snekkerru/claude-tg-assistant-setup.git ~/.claude
-```
-
-After completing step 2 (SSH keys), switch the remote to SSH:
-
-```bash
-git -C ~/.claude remote set-url origin git@github.com:snekkerru/claude-tg-assistant-setup.git
-```
-
----
-
-## 2. Set up SSH keys
-
-```bash
-# GitHub
+# Generate GitHub SSH key
 ssh-keygen -t ed25519 -C "your@email.com" -f ~/.ssh/github_ed25519 -N ""
-# Add ~/.ssh/github_ed25519.pub to github.com → Settings → SSH keys
 
+# Add to SSH config
 cat >> ~/.ssh/config << 'EOF'
 Host github.com
   IdentityFile /home/claudeuser/.ssh/github_ed25519
   StrictHostKeyChecking no
 EOF
 
-# Configure git
+# Show public key — add it to github.com → Settings → SSH keys
+cat ~/.ssh/github_ed25519.pub
+```
+
+After adding the key to GitHub, verify the connection:
+
+```bash
+ssh -T git@github.com
+# Should print: Hi snekkerru! You've successfully authenticated...
+```
+
+---
+
+## 2. Clone this repo into ~/.claude
+
+```bash
+git clone git@github.com:snekkerru/claude-tg-assistant-setup.git ~/.claude
+
+# Configure git identity
 git -C ~/.claude config user.name "Your Name"
 git -C ~/.claude config user.email "your@email.com"
 ```
