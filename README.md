@@ -81,18 +81,20 @@ bun --version
 
 ---
 
-## 1. Restore config from this repo
+## 1. Clone this repo into ~/.claude
+
+> Run all following steps as `claudeuser` (created in Prerequisites above).
 
 ```bash
-# Create user if needed
-adduser claudeuser
-su - claudeuser
-
-# Clone into ~/.claude
-git clone git@github.com:snekkerru/claude-template.git ~/.claude
+# Clone via HTTPS — SSH isn't set up yet at this point
+git clone https://github.com/snekkerru/claude-template.git ~/.claude
 ```
 
-> Note: SSH key for GitHub must be set up first (step 2) — or clone via HTTPS initially, then switch to SSH.
+After completing step 2 (SSH keys), switch the remote to SSH:
+
+```bash
+git -C ~/.claude remote set-url origin git@github.com:snekkerru/claude-template.git
+```
 
 ---
 
