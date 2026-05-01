@@ -36,23 +36,47 @@ Personal AI assistant running Claude Code via Telegram, with automated agents an
 
 ## Prerequisites
 
-```bash
-# System packages
-apt install tmux expect curl git python3 -y
+### Fresh server setup (Ubuntu 22.04+)
 
-# Claude Code CLI — local install (auto-updates without root)
+```bash
+# Update system
+sudo apt update && sudo apt upgrade -y
+
+# Install required packages
+sudo apt install -y tmux expect curl git python3 python3-pip nodejs npm
+
+# Create a dedicated user (run as root)
+sudo adduser claudeuser
+sudo usermod -aG sudo claudeuser
+su - claudeuser
+```
+
+### Install Claude Code CLI
+
+```bash
+# Local install — no root needed, auto-updates
 npm install -g @anthropic-ai/claude-code --prefix ~/.local
-# Add to PATH (add to ~/.bashrc)
+
+# Add to PATH
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# Bun (required for Telegram plugin)
+# Verify
+claude --version
+```
+
+### Install Bun (required for Telegram plugin)
+
+```bash
 curl -fsSL https://bun.sh/install | bash
 
-# Add bun to PATH (add to ~/.bashrc)
+# Add to PATH
 echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
 echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+
+# Verify
+bun --version
 ```
 
 ---
