@@ -27,3 +27,5 @@ state/
 *.log
 github_truelabs.env
 crypto_prices.sh
+channels/telegram/access.json
+channels/telegram/bot.pid

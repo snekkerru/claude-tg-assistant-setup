@@ -116,6 +116,13 @@ nano ~/.claude/channels/telegram/.env
 # Then run Claude and use /telegram:configure — paste the bot token
 ```
 
+Set up access control (controls who can reach the bot):
+
+```bash
+cp ~/.claude/channels/telegram/access.json.example ~/.claude/channels/telegram/access.json
+# Then in Claude: use /telegram:access to approve your own Telegram chat_id
+```
+
 After the plugin installs for the first time (on first Claude run), apply the modified server.ts to restore the `/stat` and `/clear` quick menu commands:
 
 ```bash
