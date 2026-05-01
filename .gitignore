@@ -1,0 +1,29 @@
+# Credentials and secrets
+.credentials.json
+settings.local.json
+channels/telegram/.env
+channels/telegram/inbox/
+youtube_cookies.txt
+file-history/
+
+# Session history (large, ephemeral) — exclude all of projects/ except memory
+projects/**
+!projects/-root/
+!projects/-root/memory/
+!projects/-root/memory/**
+
+session-env/
+sessions/
+shell-snapshots/
+telemetry/
+
+# Git itself
+.git/
+backups/
+backup.log
+
+# Personal/runtime state
+state/
+*.log
+github_truelabs.env
+crypto_prices.sh

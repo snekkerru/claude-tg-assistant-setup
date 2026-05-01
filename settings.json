@@ -1,0 +1,19 @@
+{
+  "permissions": {},
+  "enabledPlugins": {
+    "telegram@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "tavily": {
+      "type": "sse",
+      "url": "https://mcp.tavily.com/mcp/?tavilyApiKey=YOUR_TAVILY_API_KEY"
+    }
+  },
+  "effortLevel": "medium",
+  "skipAutoPermissionPrompt": true,
+  "trustedDirectories": [
+    "/home/claudeuser"
+  ],
+  "skipDangerousModePermissionPrompt": true,
+  "autoCompactThreshold": 0.8
+}
