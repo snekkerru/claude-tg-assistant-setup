@@ -87,13 +87,13 @@ bun --version
 
 ```bash
 # Clone via HTTPS — SSH isn't set up yet at this point
-git clone https://github.com/snekkerru/claude-template.git ~/.claude
+git clone https://github.com/snekkerru/claude-tg-assistant-setup.git ~/.claude
 ```
 
 After completing step 2 (SSH keys), switch the remote to SSH:
 
 ```bash
-git -C ~/.claude remote set-url origin git@github.com:snekkerru/claude-template.git
+git -C ~/.claude remote set-url origin git@github.com:snekkerru/claude-tg-assistant-setup.git
 ```
 
 ---
