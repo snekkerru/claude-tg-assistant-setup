@@ -9,7 +9,7 @@
 
 ## Telegram commands
 
-When a Telegram message starts with `/`, read `/home/claudeuser/.claude/telegram_commands.md`.
+When a Telegram message starts with `/`, read `/home/claudeuser/.claude/projects/-root/memory/telegram_commands.md`.
 
 ## Media download via Telegram
 

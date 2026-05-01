@@ -10,13 +10,12 @@ Personal AI assistant running Claude Code via Telegram, with automated agents an
 ~/.claude/
 ├── CLAUDE.md                        # Main Claude instructions
 ├── settings.json                    # Claude Code settings + MCP servers
-├── telegram_commands.md             # Telegram slash command definitions
-├── transcribe.sh                    # Voice transcription helper
-├── sync_to_github.sh                # Config backup script (runs nightly)
 ├── agents/                          # Specialist agent prompts
 │   └── _routing.md                  # Agent routing index
 ├── scripts/
-│   └── run_agent.sh                 # Automated agent runner (cron)
+│   ├── run_agent.sh                 # Automated agent runner (cron)
+│   ├── sync_to_github.sh            # Config backup script (runs nightly)
+│   └── transcribe.sh                # Voice transcription helper
 ├── setup/
 │   ├── claude-telegram.service      # systemd service (auto-start on reboot)
 │   ├── start-claude.sh              # tmux launch script (uses expect)
@@ -200,7 +199,7 @@ Add:
 
 ```
 # GitHub config sync — daily at 03:07 MSK (00:07 UTC)
-7 0 * * * /home/claudeuser/.claude/sync_to_github.sh >> /home/claudeuser/.claude/sync_github.log 2>&1
+7 0 * * * /home/claudeuser/.claude/scripts/sync_to_github.sh >> /home/claudeuser/.claude/sync_github.log 2>&1
 ```
 
 ---
@@ -209,7 +208,7 @@ Add:
 
 ```bash
 tmux attach -t claude-telegram
-bash ~/.claude/sync_to_github.sh
+bash ~/.claude/scripts/sync_to_github.sh
 sudo systemctl status claude-telegram
 ```
 
@@ -217,6 +216,6 @@ sudo systemctl status claude-telegram
 
 ## Config sync
 
-The repo is updated automatically every night via `sync_to_github.sh`.
+The repo is updated automatically every night via `scripts/sync_to_github.sh`.
 
 Secrets excluded: `.credentials.json`, `settings.local.json`, `channels/telegram/.env`.

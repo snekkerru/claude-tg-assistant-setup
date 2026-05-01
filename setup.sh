@@ -194,7 +194,7 @@ fi
 echo ""
 echo "── Cron jobs ────────────────────────────────────"
 
-CRON_JOB="7 0 * * * $CLAUDE_DIR/sync_to_github.sh >> $CLAUDE_DIR/sync_github.log 2>&1"
+CRON_JOB="7 0 * * * $CLAUDE_DIR/scripts/sync_to_github.sh >> $CLAUDE_DIR/sync_github.log 2>&1"
 if ! crontab -l 2>/dev/null | grep -q "sync_to_github.sh"; then
   (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
   ok "GitHub sync cron added (daily 03:07 MSK)"
