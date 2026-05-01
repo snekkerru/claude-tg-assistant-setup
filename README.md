@@ -17,8 +17,13 @@ Personal AI assistant running Claude Code via Telegram, with automated agents an
 │   └── _routing.md                  # Agent routing index
 ├── scripts/
 │   └── run_agent.sh                 # Automated agent runner (cron)
+├── setup/
+│   ├── claude-telegram.service      # systemd service (auto-start on reboot)
+│   ├── start-claude.sh              # tmux launch script (uses expect)
+│   └── telegram-server.ts           # Modified Telegram plugin server
 ├── channels/telegram/
-│   └── .env.example                 # Credentials template (copy to .env)
+│   ├── .env.example                 # Credentials template (copy to .env)
+│   └── access.json.example          # Access control template (copy to access.json)
 └── projects/-root/memory/           # Persistent memory files
     ├── MEMORY.md
     ├── user_profile.md
