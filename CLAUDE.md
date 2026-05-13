@@ -15,10 +15,6 @@ When a Telegram message starts with `/`, read `/home/claudeuser/.claude/projects
 
 When a Telegram message contains a YouTube / YouTube Shorts / Twitter (x.com) / SoundCloud link: run `/home/claudeuser/scripts/media_download.py <url> <chat_id>` (stderr to /dev/null), parse the JSON result, and send the file(s) via the Telegram reply tool with `files=[filepath]`. Clean up downloaded files after sending.
 
-## Domain expertise
-
-For complex tasks requiring deep domain knowledge (strategy, architecture, analysis — not simple questions): read `/home/claudeuser/.claude/agents/_routing.md` to find the relevant specialist, then read that agent file before responding.
-
 ---
 
 # Engineering Discipline
