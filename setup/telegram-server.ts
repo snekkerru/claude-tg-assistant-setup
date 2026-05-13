@@ -1039,6 +1039,8 @@ void (async () => {
               { command: 'start', description: 'Welcome and setup guide' },
               { command: 'stat', description: 'Model, context fill, token breakdown' },
               { command: 'clear', description: 'Clear Claude context window' },
+              { command: 'model', description: 'Switch model: sonnet or opus' },
+              { command: 'effort', description: 'Set effort: low/medium/high/xhigh/max/auto' },
             ],
             { scope: { type: 'all_private_chats' } },
           ).catch(() => {})
