@@ -38,12 +38,21 @@ Steps:
 
 ## /stat
 
-Reply with three blocks — no prose, no padding:
+Reply with three blocks — no prose, no padding.
 
-**a) Model & effort** — model ID + effort level (e.g. `claude-sonnet-4-6 / high`).
+Before composing the reply, determine the active model and its context window:
+1. Read `~/.claude/settings.local.json`; if `model` is set, use it.
+2. Otherwise fall back to `model` in `~/.claude/settings.json`.
+3. Map model → context window:
+   - `claude-opus-4-7` → `1M` (1 000 000 tokens)
+   - `claude-sonnet-4-6` → `200k` (200 000 tokens)
+   - any other / unknown → `200k`
 
-**b) Context** — ASCII progress bar, estimated fill, absolute tokens:
+**a) Model & effort** — model ID + effort level (e.g. `claude-opus-4-7 / auto`).
+
+**b) Context** — ASCII progress bar, estimated fill, absolute tokens against the model's actual window. Examples:
 ```
+[██░░░░░░░░░░░░░░░░░░] ~11% (~110k / 1M)
 [████████░░░░░░░░░░░░] ~42% (~84k / 200k)
 ```
 
